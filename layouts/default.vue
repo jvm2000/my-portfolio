@@ -4,11 +4,12 @@ type URLs = {
   label: string
 }
 
+const route = useRoute()
 const navLinks = ref < URLs[] > ([
   { to: '/', label: 'Home' },
-  { to: '/', label: 'Projects' },
-  { to: '/', label: 'Arts' },
-  { to: '/', label: 'About' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/arts', label: 'Arts' },
+  { to: '/about', label: 'About' },
 ])
 </script>
 
@@ -18,10 +19,10 @@ const navLinks = ref < URLs[] > ([
       <img src="/logo.svg" alt="">
 
       <div class="flex items-center space-x-20">
-        <div v-for="nav in navLinks" class="p-1 space-y-2 group">
-          <span href="" class="text-xl">{{ nav.label }}</span>
+        <div v-for="nav in navLinks" class="p-1 space-y-2 group" @click="navigateTo(nav.to)">
+          <span  class="text-xl">{{ nav.label }}</span>
 
-          <div class="w-full border-0 group-hover:border group-hover:border-black" />
+          <div :class="[route.path === nav.to ? 'border border-black w-full' : 'w-full border-0 group-hover:border group-hover:border-black']" />
         </div>
       </div>
     </div>

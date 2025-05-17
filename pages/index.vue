@@ -21,7 +21,7 @@
 </style>
 
 <template>
-  <div class="py-24 w-full flex flex-col items-center">
+  <div class="pt-24 pb-48 w-full flex flex-col items-center">
     <div class="w-full max-w-5xl space-y-10 flex flex-col items-center">
       <div class="flex items-center">
         <img src="/hand.svg" alt="" class="mr-2">
