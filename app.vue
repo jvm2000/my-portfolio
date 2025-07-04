@@ -8,7 +8,7 @@ useHead({
 </script>
 
 <template>
-  <div>
+  <div class="overflow-x-hidden">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -31,11 +31,11 @@ body {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #3C3C3C; 
+  background: #060606; 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #656565; 
+  background: #121212; 
 }
 </style>

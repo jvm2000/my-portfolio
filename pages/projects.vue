@@ -6,6 +6,9 @@ type Projects = {
   description: string,
   to: string
 }
+
+useHead({ title: 'Projects' })
+
 const projectsData = ref<Projects[]>([
   {
     im1: '/images/mt1.png',
@@ -34,17 +37,17 @@ function openTab(link: string) {
 </script>
 
 <template>
-  <div class="pt-24 pb-48 w-full flex flex-col items-center">
+  <div class="pt-24 pb-48 w-full flex flex-col items-center px-6 md:px-0">
     <div class="w-full space-y-36 flex flex-col items-center">
       <div 
         v-for="(proj, index) in projectsData" 
         :key="index"
-        class="flex items-center"
+        class="flex flex-col lg:flex-row items-center"
         :class="[index % 2 !== 0 ? 'flex-row-reverse' : 'flex-row']"
       >
         <div 
-          class="w-[527px] h-[397px] relative"
-          :class="[index % 2 !== 0 ? 'ml-24' : 'mr-24']"
+          class="w-full md:w-[527px] h-[397px] relative"
+          :class="[index % 2 !== 0 ? 'md:ml-24' : 'md:mr-24']"
         >
           <div 
             class="w-[432px] h-[296px] border absolute border-black rounded-sm bg-white z-[1]" 
@@ -55,13 +58,13 @@ function openTab(link: string) {
 
           <div 
             class="w-[311px] h-[214px] border absolute border-black rounded-sm bg-white z-[2]"
-            :class="[index % 2 !== 0 ? 'right-0 bottom-6' : 'left-0 bottom-6']"
+            :class="[index % 2 !== 0 ? 'right-40 lg:right-0 bottom-6' : 'left-36 lg:left-0 bottom-6']"
           >
             <img :src="proj.im2"  class="h-full w-auto object-cover">
           </div>
         </div>
 
-        <div class="space-y-8 flex flex-col w-[456px]">
+        <div class="space-y-8 flex flex-col md:w-[456px] mt-10 lg:mt-0">
           <p 
             class="text-6xl text-black font-bold w-full"
             :class="[index % 2 !== 0 ? 'text-right' : 'text-left']"
@@ -83,10 +86,10 @@ function openTab(link: string) {
 
           <div 
             class="w-full flex"
-            :class="[index % 2 !== 0 ? 'justify-end' : 'justify-start']"
+            :class="[index % 2 !== 0 ? 'md:justify-end' : 'md:justify-start']"
             @click="openTab(proj.to)"
           >
-            <button class="border-2 border-black w-56 py-2.5 justify-center ">
+            <button class="border-2 border-black w-full md:w-56 py-2.5 justify-center ">
               <p class="text-xl">View Website</p>
             </button>
           </div>

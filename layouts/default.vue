@@ -15,11 +15,11 @@ const navLinks = ref < URLs[] > ([
 
 <template>
   <header>
-    <div class="w-full 2xl:px-36 md:px-10 py-3 flex items-center justify-between">
-      <img src="/logo.svg" alt="">
+    <div class="w-full 2xl:px-36 md:px-10 py-3 flex items-center md:justify-between">
+      <img src="/logo.svg" alt="" class="hidden md:block">
 
       <div class="flex items-center 2xl:space-x-20 md:space-x-16">
-        <div v-for="nav in navLinks" class="p-1 space-y-2 group" @click="navigateTo(nav.to)">
+        <div v-for="nav in navLinks" class="p-1 space-y-2 group cursor-pointer" @click="navigateTo(nav.to)">
           <span  class="text-xl">{{ nav.label }}</span>
 
           <div :class="[route.path === nav.to ? 'border border-black w-full' : 'w-full border-0 group-hover:border group-hover:border-black']" />
