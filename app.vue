@@ -14,3 +14,28 @@ useHead({
     </NuxtLayout>
   </div>
 </template>
+
+<style>
+body {
+  font-family: "Barlow", sans-serif;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: inherit; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3C3C3C; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #656565; 
+}
+</style>

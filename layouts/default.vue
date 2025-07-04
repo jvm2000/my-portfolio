@@ -15,10 +15,10 @@ const navLinks = ref < URLs[] > ([
 
 <template>
   <header>
-    <div class="w-full px-36 py-3 flex items-center justify-between">
+    <div class="w-full 2xl:px-36 md:px-10 py-3 flex items-center justify-between">
       <img src="/logo.svg" alt="">
 
-      <div class="flex items-center space-x-20">
+      <div class="flex items-center 2xl:space-x-20 md:space-x-16">
         <div v-for="nav in navLinks" class="p-1 space-y-2 group" @click="navigateTo(nav.to)">
           <span  class="text-xl">{{ nav.label }}</span>
 
