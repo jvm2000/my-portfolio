@@ -28,6 +28,18 @@ const projectsData = ref<Projects[]>([
     label: 'AXIS Martial Arts',
     description: "AXIS Martial Arts is a world-class FREE software platform that enables you to manage your school, your students and your membership fees.",
     to: 'https://axismartialarts.com/'
+  }, {
+    im1: '/images/ab1.png',
+    im2: '/images/ab2.png',
+    label: 'Abled Online',
+    description: "Delivering comprehensive technical solutions with 24/7 professional support. We empower individuals and businesses with reliable, expert PC services.",
+    to: 'https://abled-online-rebuild.vercel.app/'
+  }, {
+    im1: '/images/r1.png',
+    im2: '/images/r2.png',
+    label: 'Restauro Legal Services',
+    description: "By harnessing the power of digital technology, we're committed to bridging the gap in legal services, reaching underserved individuals, areas and communities, and empowering individuals with our flexible scheduling and remote consultations for legal assistance.",
+    to: 'https://restaurolegalservices.com//'
   }
 ])
 
@@ -42,8 +54,8 @@ function openTab(link: string) {
       <div 
         v-for="(proj, index) in projectsData" 
         :key="index"
-        class="flex flex-col lg:flex-row items-center"
-        :class="[index % 2 !== 0 ? 'flex-row-reverse' : 'flex-row']"
+        class="flex flex-col items-center"
+        :class="[index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row']"
       >
         <div 
           class="w-full md:w-[527px] h-[397px] relative"
