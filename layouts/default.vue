@@ -47,7 +47,7 @@ onUnmounted(() => {
 
 <template>
   <!-- Custom Cursor -->
-  <div class="custom-cursor" :style="{ left: cursor.x + 'px', top: cursor.y + 'px' }"></div>
+  <div class="custom-cursor hidden sm:block" :style="{ left: cursor.x + 'px', top: cursor.y + 'px' }"></div>
   
   <!-- Cursor Trail -->
   <div 
