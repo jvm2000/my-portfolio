@@ -13,11 +13,37 @@ const artsData = ref([
 </script>
 
 <template>
-  <div class="pt-24 pb-48 w-full flex flex-col items-center pl-24 md:pl-10 lg:pl-0">
-    <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-      <div v-for="art in artsData" class="w-[303px] h-[303px] border border-black">
-        <img :src="art" class="h-auto w-full object-cover" />
+  <div class="pt-24 pb-48 w-full flex flex-col items-center">
+    <div class="w-full sm:max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+      <div
+        v-for="art in artsData"
+        class="art-container w-[303px] h-[303px] border border-black overflow-hidden flex items-center justify-center"
+      >
+        <img
+          :src="art"
+          class="art-image w-full h-full object-cover object-center"
+        />
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.art-container {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.art-container:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  position: relative;
+}
+
+.art-image {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.art-image:hover {
+  transform: scale(1.1);
+}
+</style>
