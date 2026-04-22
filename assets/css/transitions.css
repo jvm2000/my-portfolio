@@ -1,0 +1,35 @@
+/* Page transition animations */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Specific transition for index to projects */
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.slide-down-enter-from {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.slide-down-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-down-leave-active {
+  transition-delay: 0.05s;
+}
