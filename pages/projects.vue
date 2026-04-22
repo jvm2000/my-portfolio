@@ -172,7 +172,7 @@ function goToProject(index: number) {
         <button 
           @click="prevProject"
           :disabled="isAnimating"
-          class="absolute hidden sm:block left-2 lg:left-0 top-1/2 transform -translate-y-1/2 p-2 lg:p-3 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed z-10 bg-white"
+          class="absolute hidden sm:block left-2 lg:left-0 top-1/2 transform -translate-y-1/2 p-2 lg:p-3 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors disabled:opacity-50 cursor-default disabled:cursor-not-allowed z-10 bg-white"
         >
           <svg class="w-4 h-4 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
@@ -300,7 +300,7 @@ function goToProject(index: number) {
         <button 
           @click="nextProject"
           :disabled="isAnimating"
-          class="absolute hidden sm:block right-2 lg:right-0 top-1/2 transform -translate-y-1/2 p-2 lg:p-3 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed z-10 bg-white"
+          class="absolute hidden sm:block right-2 lg:right-0 top-1/2 transform -translate-y-1/2 p-2 lg:p-3 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors disabled:opacity-50 cursor-default disabled:cursor-not-allowed z-10 bg-white"
         >
           <svg class="w-4 h-4 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
