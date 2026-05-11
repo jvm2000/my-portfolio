@@ -48,6 +48,12 @@ const projectsData = ref<Projects[]>([
     label: 'Restauro Legal Services',
     description: "By harnessing the power of digital technology, we're committed to bridging the gap in legal services, reaching underserved individuals, areas and communities, and empowering individuals with our flexible scheduling and remote consultations for legal assistance.",
     to: 'https://restaurolegalservices.com//'
+  }, {
+    im1: '/images/o1.png',
+    im2: '/images/o2.png',
+    label: 'Carolina Sportsman Outfitters',
+    description: "Your trusted local outfitter for fishing, hunting, marine, and outdoor gear. Serving the Carolinas with expert knowledge and premium brands.",
+    to: 'https://carolinasportsmanoutfitters.com'
   }
 ])
 
