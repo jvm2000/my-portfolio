@@ -7,6 +7,12 @@ type Projects = {
   to: string
 }
 
+type Video = {
+  id: string,
+  title: string,
+  url: string
+}
+
 useHead({ title: 'Projects' })
 
 // Define page transition
@@ -62,6 +68,44 @@ const isAnimating = ref(false)
 const isFadingOut = ref(false)
 const isPageLoading = ref(true)
 const currentProject = computed(() => projectsData.value[currentIndex.value])
+
+// Modal state for video playback
+const isModalOpen = ref(false)
+const currentVideo = ref<Video | null>(null)
+
+// YouTube videos data
+const videosData = ref<Video[]>([
+  {
+    id: 'Mos_ZETG4MM',
+    title: 'Lethal Momints',
+    url: 'https://youtu.be/Mos_ZETG4MM'
+  },
+  {
+    id: 'b0gPbhBr2Zg',
+    title: 'League of Legends: TAHM KENCH NG Pinas???',
+    url: 'https://youtu.be/b0gPbhBr2Zg'
+  },
+  {
+    id: 'x8Y-kwMwmfg',
+    title: 'rivals.exe',
+    url: 'https://youtu.be/x8Y-kwMwmfg'
+  },
+  {
+    id: 'ZBsWhBSws90',
+    title: 'bad guy cover originally by Billie Eilish',
+    url: 'https://youtu.be/ZBsWhBSws90'
+  },
+  {
+    id: '7sGenri_Lkk',
+    title: 'Monster School | Among Us | Minecraft Animation',
+    url: 'https://youtu.be/7sGenri_Lkk'
+  },
+  {
+    id: 'SuNSN0_x-J0',
+    title: 'Mom ma ma ma',
+    url: 'https://youtu.be/SuNSN0_x-J0'
+  }
+])
 
 // Initialize page entrance animation
 onMounted(() => {
@@ -163,6 +207,38 @@ function goToProject(index: number) {
     }, 500)
   }, 300)
 }
+
+// Video modal functions
+function openVideoModal(video: Video) {
+  currentVideo.value = video
+  isModalOpen.value = true
+  document.body.style.overflow = 'hidden'
+}
+
+function closeVideoModal() {
+  isModalOpen.value = false
+  currentVideo.value = null
+  document.body.style.overflow = 'auto'
+}
+
+// Handle escape key to close modal
+onMounted(() => {
+  setTimeout(() => {
+    isPageLoading.value = false
+  }, 100)
+  
+  const handleEscape = (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isModalOpen.value) {
+      closeVideoModal()
+    }
+  }
+  
+  window.addEventListener('keydown', handleEscape)
+  
+  onUnmounted(() => {
+    window.removeEventListener('keydown', handleEscape)
+  })
+})
 </script>
 
 <template>
@@ -338,5 +414,95 @@ function goToProject(index: number) {
         :class="index === currentIndex ? 'bg-black' : 'bg-gray-300 hover:bg-gray-500'"
       ></button>
     </div>
+
+    <!-- YouTube Videos Section -->
+    <div class="w-full max-w-6xl mx-auto pt-40 lg:pt-20 px-2 md:px-8 lg:px-0">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12">Project Videos</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+        <div 
+          v-for="video in videosData" 
+          :key="video.id"
+          class="relative w-full aspect-video bg-black rounded-lg overflow-hidden group cursor-pointer"
+          @click="openVideoModal(video)"
+        >
+          <iframe
+            :src="`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1&autohide=1&showinfo=0&vq=hd1080&hd=1`"
+            :title="video.title"
+            class="absolute inset-0 w-full h-full"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Modal -->
+    <Teleport to="body">
+      <Transition
+        name="modal"
+        enter-active-class="duration-300 ease-out"
+        enter-from-class="opacity-0"
+        enter-to-class="opacity-100"
+        leave-active-class="duration-200 ease-in"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
+      >
+        <div 
+          v-if="isModalOpen && currentVideo"
+          class="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-90 p-4 sm:p-6 lg:p-8"
+          @click="closeVideoModal"
+        >
+        <Transition
+          name="modal-content"
+          enter-active-class="duration-300 ease-out"
+          enter-from-class="opacity-0 scale-95"
+          enter-to-class="opacity-100 scale-100"
+          leave-active-class="duration-200 ease-in"
+          leave-from-class="opacity-100 scale-100"
+          leave-to-class="opacity-0 scale-95"
+        >
+          <div 
+            v-if="isModalOpen && currentVideo"
+            class="relative w-full max-w-4xl lg:max-w-6xl aspect-video"
+            style="margin: 0 auto;"
+            @click.stop
+          >
+        <!-- Close Button -->
+        <button 
+          @click="closeVideoModal"
+          class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
+        >
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        
+        <!-- Video Player -->
+        <iframe
+          :src="`https://www.youtube.com/embed/${currentVideo.id}?autoplay=1&rel=0&modestbranding=1&autohide=1&showinfo=0&vq=hd1080`"
+          :title="currentVideo.title"
+          class="w-full h-full rounded-lg"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+        
+        <!-- Video Title -->
+            <div class="absolute -bottom-12 left-0 right-0 text-center">
+              <h3 class="text-white text-lg font-medium">{{ currentVideo.title }}</h3>
+            </div>
+          </div>
+        </Transition>
+      </div>
+    </Transition>
+    </Teleport>
   </div>
 </template>
