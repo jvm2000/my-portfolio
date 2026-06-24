@@ -37,9 +37,12 @@ import { ArrowUpRightIcon } from '@heroicons/vue/24/outline'
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin h-4 w-4 stroke-white group-hover:stroke-[#9473c9] group-hover:-translate-y-[1px]" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
         </a>
 
-        <div class="w-10 h-10 grid place-items-center bg-[#19171f] rounded-full border border-[#2f2f36] group hover:border-[#9473c9]">
+        <a 
+          class="w-10 h-10 grid place-items-center bg-[#19171f] rounded-full border border-[#2f2f36] group hover:border-[#9473c9]"
+          href="mailto:minozajohnvincent2000@gmail.com"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-4 w-4 stroke-white group-hover:stroke-[#9473c9] group-hover:-translate-y-[1px]" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
-        </div>
+        </a>
       </div>
     </div>
 

@@ -8,10 +8,10 @@ import { MusicalNoteIcon, FilmIcon } from '@heroicons/vue/24/outline';
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
       <div class="flex flex-col items-start space-y-6">
-        <p class="text-4xl font-medium text-white font-fraunces">Building seamless digital experiences.</p>
+        <p class="text-4xl font-medium text-white font-fraunces italic">"Building What I Enjoy"</p>
 
         <p class="text-lg text-gray-400">
-          A dynamic and detail-oriented web developer crafting and maintaining websites and web applications. Passionate about building seamless digital experiences — proficient across front-end and back-end with Vue 3, Laravel, and the modern web stack.
+          Beyond development, I have a deep appreciation for creativity. Music, singing, and drawing are some of the ways I express myself and explore new ideas. Whether I’m developing a web application, composing a melody, or sketching a concept, I’m always driven by the joy of creating and bringing something unique to life.
         </p>
       </div>
 

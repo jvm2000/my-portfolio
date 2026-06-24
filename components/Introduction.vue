@@ -1,5 +1,15 @@
 <script setup lang="ts">
-import { ArrowUpRightIcon } from '@heroicons/vue/24/outline';
+import { ArrowUpRightIcon, ArrowDownTrayIcon } from '@heroicons/vue/24/outline'
+
+function downloadCV() {
+  const link = document.createElement('a')
+
+  link.href = '/files/Miñoza, John Vincent - CV.pdf'
+  link.download = 'Miñoza, John Vincent - CV.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
 </script>
 
 <template>
@@ -15,10 +25,10 @@ import { ArrowUpRightIcon } from '@heroicons/vue/24/outline';
       <p class="text-6xl lg:text-7xl text-white font-fraunces font-semibold">John Vincent <br>O. Miñoza<span class="text-[#bb91ff]">.</span></p>
 
       <p class="text-lg text-gray-400">
-        A dynamic and detail-oriented web developer crafting and maintaining websites and web applications. Passionate about building seamless digital experiences — proficient across front-end and back-end with Vue 3, Laravel, and the modern web stack.
+        Hey there! I'm John, a web developer with 4+ years of experience building modern web applications with JavaScript, TypeScript, PHP, Laravel, Vue 3, and Nuxt 3.
       </p>
 
-      <div class="flex items-center space-x-4">
+      <div class="flex flex-1 flex-wrap md:items-center gap-2 items-center">
         <a 
           class="px-6 py-2.5 bg-white rounded-full text-sm text-[#0e0c12] font-medium flex items-center group hover:-translate-y-[1px]"
           href="mailto:minozajohnvincent2000@gmail.com"
@@ -40,6 +50,14 @@ import { ArrowUpRightIcon } from '@heroicons/vue/24/outline';
 
           Github
         </a>
+
+        <button 
+          class="px-6 py-2.5 bg-[#19171f] rounded-full text-sm text-white font-medium flex items-center border hover:-translate-y-[1px] border-[#1c1a20]"
+          @click="downloadCV"
+        >
+          <ArrowDownTrayIcon class="mr-2 w-3.5 h-3.5 stroke-white group-hover:-translate-y-[1px] group-hover:translate-x-[1px]" />
+          Download CV
+        </button>
       </div>
     </div>
 
