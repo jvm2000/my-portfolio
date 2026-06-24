@@ -8,7 +8,7 @@ useHead({
 </script>
 
 <template>
-  <div class="overflow-x-hidden">
+  <div class="overflow-x-hidden font-sans">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -17,7 +17,8 @@ useHead({
 
 <style>
 body {
-  font-family: "Barlow", sans-serif;
+  font-family: "Inter", sans-serif;
+  background: #0e0c12; 
 }
 /* width */
 ::-webkit-scrollbar {

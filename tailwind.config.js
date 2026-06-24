@@ -2,7 +2,12 @@
 export default {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        fraunces: ['Fraunces', 'serif'],
+        mono: ['JetBrains Mono', 'serif'],
+      },
+    },
   },
   plugins: [],
 }
