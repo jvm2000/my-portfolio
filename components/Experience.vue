@@ -11,7 +11,7 @@ const experiences: Experience[] = [
   {
     title: 'WordPress Developer (Part-Time)',
     company: 'Rothbright',
-    duration: 'Jan 2026 — Present',
+    duration: 'Jan 2026 — June 2026',
     description: 'Developed, enhanced, fixed and deployed WordPress website themes and Shopify storefronts.',
     technologies: [
       'Avada',
